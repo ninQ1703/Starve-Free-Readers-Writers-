@@ -34,7 +34,7 @@ SEMAPHORES<ul>
 	<li>write = 1; //read and write permission</li>
 	<li>turn  1; // entry permission</li></ul>
 
-	Readers Code:
+Readers Code:
 ```
 	while(true){
 		wait(turn);
@@ -57,7 +57,7 @@ SEMAPHORES<ul>
 	}
 ```
 
-	Writers Code:
+Writers Code:
 ```
 	while(true){
 
