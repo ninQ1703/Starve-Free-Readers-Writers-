@@ -27,15 +27,15 @@ Hence we can use two semaphores for this purpose - write, turn
 Also we need to maintain count of readers inside of pool, so we use readcount and a semaphore to achieve mutual exclusion for readcount among readers.
 
 ## Starve Free Reader Writers code*
-variables<ul>
+VARIABLES<ul>
 	<li>readcount = 0;</li></ul>
-semaphores<ul>
+SEMAPHORES<ul>
 	<li>mutex = 1; //mutual exclusion for readers</li>
 	<li>write = 1; //read and write permission</li>
 	<li>turn  1; // entry permission</li></ul>
 
 	Readers Code:
-	```
+```
 	while(true){
 		wait(turn);
 		wait(mutex);
@@ -55,10 +55,10 @@ semaphores<ul>
 
 		signal(wrt);
 	}
-	```
+```
 
 	Writers Code:
-	```
+```
 	while(true){
 
 		wait(turn);
@@ -69,9 +69,9 @@ semaphores<ul>
 
 		signal(write);
 	}
-	```
+```
 
-##How to Solution satisfies all the reqiurements
+##How Solution Satisfies all the Reqiurements
 
 <b>1) Mutual Exclusion</b> - The semaphore 'write' makes sure that there is mutual exclusion between readers and writers and among writers
 
