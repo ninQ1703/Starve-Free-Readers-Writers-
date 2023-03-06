@@ -1,0 +1,44 @@
+//declaration of variables
+
+int readcount = 0; //numbers of readers in the pool
+semaphore write = 1; //mutual exclusion between readers and writers
+semaphore mutex = 1; //mutual exclusion for readcount variable
+semaphore turn = 1; //signal that the other reader/writer is ready 
+
+
+//writers code
+
+while(true){
+
+	wait(turn);
+	wait(write);
+	signal(turn);
+
+	//critical section
+
+	signal(write);
+}
+
+
+//readers code
+
+
+while(true){
+	wait(turn);
+	wait(mutex);
+
+	readcount++;
+	if(readcount==1) wait(write);
+
+	signal(turn);
+	signal(mutex);
+
+	// critical section
+
+	wait(mutex);
+
+	readcount--;
+	if(readcount==0) signal(write);
+
+	signal(wrt);
+}
