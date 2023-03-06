@@ -1,4 +1,4 @@
-# Starve Free Reader Writer SOlution 
+# Starve Free Reader Writer Solution 
 ## Readers Writers Problem
 Given a file and a set of writers and readers.
 Writers want to write into file and readers want to read from the file when they are ready.
@@ -26,7 +26,7 @@ After the writer finishes writing, it gives back these permissions to the pool.
 Hence we can use two semaphores for this purpose - write, turn.
 Also we need to maintain count of readers inside of pool, so we use a variable readcount and a semaphore to achieve mutual exclusion for readcount among readers.
 
-## Starve Free Reader Writers code*
+## Starve Free Reader Writers code
 VARIABLES<ul>
 	<li>readcount = 0;</li></ul>
 SEMAPHORES<ul>
