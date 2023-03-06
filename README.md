@@ -71,7 +71,7 @@ Writers Code:
 	}
 ```
 
-##How Solution Satisfies all the Reqiurements
+## How Solution Satisfies all the Reqiurements
 
 <b>1) Mutual Exclusion</b> - The semaphore 'write' makes sure that there is mutual exclusion between readers and writers and among writers
 
