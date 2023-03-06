@@ -24,7 +24,7 @@ And whenever a writer is writing, it takes away Read permisson, and only one mem
 
 After the writer finishes writing, it gives back these permissions to the pool.
 Hence we can use two semaphores for this purpose - write, turn.
-Also we need to maintain count of readers inside of pool, so we use readcount and a semaphore to achieve mutual exclusion for readcount among readers.
+Also we need to maintain count of readers inside of pool, so we use a variable readcount and a semaphore to achieve mutual exclusion for readcount among readers.
 
 ## Starve Free Reader Writers code*
 VARIABLES<ul>
@@ -75,6 +75,6 @@ Writers Code:
 
 <b>1) Mutual Exclusion</b> - The semaphore 'write' makes sure that there is mutual exclusion between readers and writers and among writers.
 
-<b>2) Progress</b> - If a writer/reader is ready to write/read and no other reader/writer is thre, then it will enter the critical section definitely.
+<b>2) Progress</b> - If a writer/reader is ready to write/read and no other reader/writer is there, then it will enter the critical section definitely.
 
-<b>3) Bounded Waiting</b> - If a writer is ready, then the pool stops collecting readers. Writers then wait for pool to get empty ehich takes finite time, Similarly a reader can get access to file when writer finishes writing with equal fairness. This ensures Starve free Solution.
+<b>3) Bounded Waiting</b> - If a writer is ready, then the pool stops collecting readers. Writers then wait for pool to get empty which takes finite time, Similarly a reader can get access to file when writer finishes writing with equal fairness. This ensures Starve free Solution.
